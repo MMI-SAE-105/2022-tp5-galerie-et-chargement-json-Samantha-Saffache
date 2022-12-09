@@ -4,19 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://unpkg.com/alpinejs"></script>
     <title>Document</title>
 </head>
 
 <style>
-CSS
-.vrac {
-   solid 0 0 0 0 0  100%   1rem 2px
-solid #fff   2rem 50%  auto 
- border   bottom
-  fixed   height  left 
-margin max-width padding  
- right   
-}
 .overlay {
     position: fixed;
     width: 100%;
@@ -59,11 +51,24 @@ margin max-width padding
 }
 </style>
 
-<body x-data="{:'https://picsum.photos/id/237/400/300'}">
+<body x-data="{ 
+    imageAffichee: 'https://picsum.photos/id/237/400/300',
+    }">
     <h1>Galerie</h1>
-<p>lorem⇥</p>
-<div class="overlay">
-    <figure><img src="https://picsum.photos/id/237/400/300" alt="image 237... un chiot"></figure>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id consequuntur quod, earum officia et incidunt reiciendis sed explicabo odit animi aliquid provident sapiente magni eos dolor obcaecati ad, quas dolorum.</p>
+<div class="overlay"
+   x-show="imageAffichee"
+   @click="imageAffichee = null"
+   @keyup.escape.window="imageAffichee = null">
+    <figure><img src="imageAffichee" alt="image 237... un chiot"></figure>
+
+    <img src="https://picsum.photos/id/236/40/60" alt="miniature chiot"
+    @click="imageAffichee = 'https://picsum.photos/id/236/200/300'">
+    <img src="https://picsum.photos/id/236/40/60" alt="miniature chiot"
+    @click="imageAffichee = 'https://picsum.photos/id/236/200/300'">
+
+
+    
 </div>
 </body>
 </html>
